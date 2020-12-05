@@ -77,16 +77,11 @@ class BusinessDaysCalculator
         ];
 
         $holidays = [
-            // Carnival (monday)
-            $this->carnivalDate((int)$year)->modify('-1 day'),
-            // Carnival
-            $this->carnivalDate((int)$year),
-            // Passion friday
-            $this->easterDate((int)$year)->modify('-2 days'),
-            // Easter
-            $this->easterDate((int)$year),
-            // Corpus Christi
-            $this->corpusChristDate((int)$year)
+            $this->carnivalDate((int) $year)->modify('-1 day'),     // Carnival (monday)
+            $this->carnivalDate((int) $year),                       // Carnival
+            $this->easterDate((int) $year)->modify('-2 days'),      // Passion friday
+            $this->easterDate((int) $year),                         // Easter
+            $this->corpusChristDate((int) $year),                   // Corpus Christi
         ];
 
         foreach ($fixHolidays as $month => $days) {
