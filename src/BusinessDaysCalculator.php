@@ -27,13 +27,13 @@ class BusinessDaysCalculator
     private $holidays = [];
 
     // Week day constants
-    public const MONDAY    = 1;
-    public const TUESDAY   = 2;
+    public const MONDAY = 1;
+    public const TUESDAY = 2;
     public const WEDNESDAY = 3;
-    public const THURSDAY  = 4;
-    public const FRIDAY    = 5;
-    public const SATURDAY  = 6;
-    public const SUNDAY    = 7;
+    public const THURSDAY = 4;
+    public const FRIDAY = 5;
+    public const SATURDAY = 6;
+    public const SUNDAY = 7;
 
     /**
      * Constructor.
@@ -55,7 +55,7 @@ class BusinessDaysCalculator
     /**
      * Returns the brazilian holidays, including Carnival, Passion, Easter and Corpus Christi.
      *
-     * @param integer $year
+     * @param int $year
      *
      * @return array
      */
@@ -77,11 +77,11 @@ class BusinessDaysCalculator
         ];
 
         $holidays = [
-            $this->carnivalDate((int)$year)->modify('-1 day'),     // Carnival (monday)
-            $this->carnivalDate((int)$year),                       // Carnival
-            $this->easterDate((int)$year)->modify('-2 days'),      // Passion
-            $this->easterDate((int)$year),                         // Easter
-            $this->corpusChristDate((int)$year)                    // Corpus Christi
+            $this->carnivalDate((int)$year)->modify('-1 day'),      // Carnival (monday)
+            $this->carnivalDate((int)$year),                        // Carnival
+            $this->easterDate((int)$year)->modify('-2 days'),       // Passion
+            $this->easterDate((int)$year),                          // Easter
+            $this->corpusChristDate((int)$year)                     // Corpus Christi
         ];
 
         foreach ($fixHolidays as $month => $days) {
@@ -98,7 +98,7 @@ class BusinessDaysCalculator
     /**
      * Returns the carnival date for the given year.
      *
-     * @param integer $year
+     * @param int $year
      *
      * @return DateTime
      */
@@ -113,7 +113,7 @@ class BusinessDaysCalculator
     /**
      * Returns the Corpus Christi date for the given year.
      *
-     * @param integer $year
+     * @param int $year
      *
      * @return DateTime
      */
@@ -128,7 +128,7 @@ class BusinessDaysCalculator
     /**
      * Returns the easter date for the given year.
      *
-     * @param integer $year
+     * @param int $year
      *
      * @return DateTime
      */
@@ -157,7 +157,7 @@ class BusinessDaysCalculator
     /**
      * Adds business day to current date.
      *
-     * @param integer $businessDays number of business days to add.
+     * @param int $businessDays number of business days to add.
      *
      * @return DateTime the new date.
      */
@@ -218,7 +218,7 @@ class BusinessDaysCalculator
     public function isBusinessDay(): bool
     {
         // Check if is a day off.
-        if (in_array((int)$this->date->format('N'), $this->daysOff)) {
+        if (in_array((int) $this->date->format('N'), $this->daysOff)) {
             return false;
         }
 
