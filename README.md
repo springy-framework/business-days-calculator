@@ -13,7 +13,7 @@ A simple PHP class to computes business days.
 
 ## Requirements
 
--   PHP 7.3+
+- PHP 7.3+
 
 ## Instalation
 
