@@ -58,13 +58,14 @@ echo "The 20th business day from now is "
 
 ## Contributing
 
-Please read our [contributing](/CONTRIBUTING.md) document and thank you for doing that.
+Please read our [contributing](/CONTRIBUTING.md) document and thank you for
+doing that.
 
 ## Code of Conduct
 
-In order to ensure that our community is welcoming to all, please review and abide by the [code of conduct](/CODE_OF_CONDUCT.md).
+In order to ensure that our community is welcoming to all, please review and
+abide by the [code of conduct](/CODE_OF_CONDUCT.md).
 
 ## License
 
 This project is licensed under [The MIT License (MIT)](/LICENSE).
-
