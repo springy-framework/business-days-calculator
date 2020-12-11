@@ -1,6 +1,4 @@
-# Business Days Calculator PHP class
-
-A simple PHP class to computes business days.
+# PHP Business Days Calculator
 
 [![Latest Stable Version](https://poser.pugx.org/springy-framework/business-days-calculator/v/stable)](https://packagist.org/packages/springy-framework/business-days-calculator)
 [![Build Status](https://travis-ci.org/springy-framework/business-days-calculator.svg?branch=main)](https://travis-ci.org/springy-framework/business-days-calculator)
@@ -10,6 +8,14 @@ A simple PHP class to computes business days.
 [![StyleCI](https://github.styleci.io/repos/318666163/shield?style=flat)](https://github.styleci.io/repos/318666163)
 [![Total Downloads](https://poser.pugx.org/springy-framework/business-days-calculator/downloads)](https://packagist.org/packages/springy-framework/business-days-calculator)
 [![License](https://poser.pugx.org/springy-framework/business-days-calculator/license)](https://packagist.org/packages/springy-framework/business-days-calculator)
+
+This class can get the business days after today or a given date.
+
+It can take as parameter a given date that will be taken as a reference.
+
+The class can return one or more dates of the next business days after the given date considering the weekends and the regular holiday dates like Christmas, Easter, Corpus Christi, etc..
+
+Optionally the class can also consider business days of specific countries like Brazil.
 
 ## Requirements
 
