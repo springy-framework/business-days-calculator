@@ -15,7 +15,6 @@ Brazil.
 [![Build Status](https://travis-ci.com/springy-framework/business-days-calculator.svg?branch=main)](https://travis-ci.com/springy-framework/business-days-calculator)
 ![PHP Composer](https://github.com/springy-framework/business-days-calculator/workflows/PHP%20Composer/badge.svg)
 [![PHPStan](https://img.shields.io/badge/PHPStan-enabled-brightgreen.svg?style=flat)](https://github.com/phpstan/phpstan)
-[![Codacy Badge](https://app.codacy.com/project/badge/Grade/904f30bd1d82473a852af28384a915c8)](https://www.codacy.com/gh/springy-framework/business-days-calculator/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=springy-framework/business-days-calculator&amp;utm_campaign=Badge_Grade)
 [![StyleCI](https://github.styleci.io/repos/318666163/shield?style=flat)](https://github.styleci.io/repos/318666163)
 [![Total Downloads](https://poser.pugx.org/springy-framework/business-days-calculator/downloads)](https://packagist.org/packages/springy-framework/business-days-calculator)
 [![License](https://poser.pugx.org/springy-framework/business-days-calculator/license)](https://packagist.org/packages/springy-framework/business-days-calculator)
