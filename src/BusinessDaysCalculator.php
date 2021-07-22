@@ -76,7 +76,7 @@ class BusinessDaysCalculator
             12 => [25],
         ];
 
-        $holidays = [
+        $brHolidays = [
             $this->carnivalDate((int) $year)->modify('-1 day'),     // Carnival (monday)
             $this->carnivalDate((int) $year),                       // Carnival
             $this->easterDate((int) $year)->modify('-2 days'),      // Passion friday
@@ -86,13 +86,13 @@ class BusinessDaysCalculator
 
         foreach ($fixHolidays as $month => $days) {
             foreach ($days as $day) {
-                $holidays[] = new DateTime('@' . mktime(0, 0, 0, $month, $day, $year));
+                $brHolidays[] = new DateTime('@' . mktime(0, 0, 0, $month, $day, $year));
             }
         }
 
-        asort($holidays);
+        asort($brHolidays);
 
-        return $holidays;
+        return $brHolidays;
     }
 
     /**
