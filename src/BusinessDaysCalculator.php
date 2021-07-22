@@ -104,10 +104,10 @@ class BusinessDaysCalculator
      */
     private function carnivalDate(int $year): DateTime
     {
-        $date = $this->easterDate($year);
-        $date->modify('-47 days');
+        $cdate = $this->easterDate($year);
+        $cdate->modify('-47 days');
 
-        return $date;
+        return $cdate;
     }
 
     /**
