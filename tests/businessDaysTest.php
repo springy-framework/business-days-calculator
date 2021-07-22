@@ -5,11 +5,13 @@ use Springy\BusinessDaysCalculator;
 
 class BusinessDaysTest extends TestCase
 {
+    protected const DEFAULT_DATE = '2020-12-04';
+
     public function testGetDate()
     {
-        $date = new DateTime('2020-12-04');
+        $date = new DateTime(self::DEFAULT_DATE);
         $bdCalc = new BusinessDaysCalculator(
-            new DateTime('2020-12-04')
+            new DateTime(self::DEFAULT_DATE)
         );
 
         $this->assertEquals($bdCalc->getDate(), $date);
@@ -18,7 +20,7 @@ class BusinessDaysTest extends TestCase
     public function testGetHolidays()
     {
         $bdCalc = new BusinessDaysCalculator(
-            new DateTime('2020-12-04')
+            new DateTime(self::DEFAULT_DATE)
         );
 
         $this->assertEquals($bdCalc->getHolidays(), []);
@@ -43,7 +45,7 @@ class BusinessDaysTest extends TestCase
         ];
 
         $bdCalc = new BusinessDaysCalculator(
-            new DateTime('2020-12-04')
+            new DateTime(self::DEFAULT_DATE)
         );
         $bdCalc->addBrazilianHolidays(2021);
 
@@ -55,7 +57,7 @@ class BusinessDaysTest extends TestCase
         $wdate = new DateTime('2020-12-24');
         $rdate = new DateTime('2021-01-04');
         $bdCalc = new BusinessDaysCalculator(
-            new DateTime('2020-12-04')
+            new DateTime(self::DEFAULT_DATE)
         );
         $bdCalc->addBrazilianHolidays(2021);
         $bdCalc->addBusinessDays(20);
@@ -80,7 +82,7 @@ class BusinessDaysTest extends TestCase
         $bdCalc = new BusinessDaysCalculator();
         $bdCalc->addBrazilianHolidays(2020);
 
-        $bdCalc->setDate(new DateTime('2020-12-04'));
+        $bdCalc->setDate(new DateTime(self::DEFAULT_DATE));
         $this->assertTrue($bdCalc->isBusinessDay());
 
         $bdCalc->setDate(new DateTime('2020-12-25'));
