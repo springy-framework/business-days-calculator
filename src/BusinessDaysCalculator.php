@@ -7,7 +7,7 @@
  * @author    Fernando Val <fernando.val@gmail.com>
  * @license   https://github.com/springy-framework/business-days-calculator/blob/main/LICENSE MIT
  *
- * @version   1.0.0
+ * @version   1.0.1
  */
 
 namespace Springy;
@@ -76,7 +76,7 @@ class BusinessDaysCalculator
             12 => [25],
         ];
 
-        $holidays = [
+        $brHolidays = [
             $this->carnivalDate((int) $year)->modify('-1 day'),     // Carnival (monday)
             $this->carnivalDate((int) $year),                       // Carnival
             $this->easterDate((int) $year)->modify('-2 days'),      // Passion friday
@@ -86,13 +86,13 @@ class BusinessDaysCalculator
 
         foreach ($fixHolidays as $month => $days) {
             foreach ($days as $day) {
-                $holidays[] = new DateTime('@' . mktime(0, 0, 0, $month, $day, $year));
+                $brHolidays[] = new DateTime('@' . mktime(0, 0, 0, $month, $day, $year));
             }
         }
 
-        asort($holidays);
+        asort($brHolidays);
 
-        return $holidays;
+        return $brHolidays;
     }
 
     /**
@@ -104,10 +104,10 @@ class BusinessDaysCalculator
      */
     private function carnivalDate(int $year): DateTime
     {
-        $date = $this->easterDate($year);
-        $date->modify('-47 days');
+        $cdate = $this->easterDate($year);
+        $cdate->modify('-47 days');
 
-        return $date;
+        return $cdate;
     }
 
     /**
@@ -119,10 +119,10 @@ class BusinessDaysCalculator
      */
     private function corpusChristDate(int $year): DateTime
     {
-        $date = $this->easterDate($year);
-        $date->modify('+60 days');
+        $ccdate = $this->easterDate($year);
+        $ccdate->modify('+60 days');
 
-        return $date;
+        return $ccdate;
     }
 
     /**
@@ -134,10 +134,10 @@ class BusinessDaysCalculator
      */
     private function easterDate(int $year): DateTime
     {
-        $date = new DateTime('@' . mktime(0, 0, 0, 3, 21, $year));
-        $date->modify('+' . easter_days($year) . ' days');
+        $edate = new DateTime('@' . mktime(0, 0, 0, 3, 21, $year));
+        $edate->modify('+' . easter_days($year) . ' days');
 
-        return $date;
+        return $edate;
     }
 
     /**

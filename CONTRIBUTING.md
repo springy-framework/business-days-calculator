@@ -21,8 +21,8 @@ specification and has integration with
 
 We also use [PHP Mess Detector](https://phpmd.org) to avoid "ugly" codes.
 
-The main repository is integrated with [Codacy](https://www.codacy.com) to
-measure code quality,
+The main repository is integrated with [Codacy](https://www.codacy.com) and
+[SonarCloud](https://sonarcloud.io/) to measure code quality,
 
 ## Testing
 
