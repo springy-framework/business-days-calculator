@@ -7,7 +7,7 @@
  * @author    Fernando Val <fernando.val@gmail.com>
  * @license   https://github.com/springy-framework/business-days-calculator/blob/main/LICENSE MIT
  *
- * @version   1.0.0
+ * @version   1.0.1
  */
 
 namespace Springy;
