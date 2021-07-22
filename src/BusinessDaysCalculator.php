@@ -119,10 +119,10 @@ class BusinessDaysCalculator
      */
     private function corpusChristDate(int $year): DateTime
     {
-        $date = $this->easterDate($year);
-        $date->modify('+60 days');
+        $ccdate = $this->easterDate($year);
+        $ccdate->modify('+60 days');
 
-        return $date;
+        return $ccdate;
     }
 
     /**
@@ -134,10 +134,10 @@ class BusinessDaysCalculator
      */
     private function easterDate(int $year): DateTime
     {
-        $date = new DateTime('@' . mktime(0, 0, 0, 3, 21, $year));
-        $date->modify('+' . easter_days($year) . ' days');
+        $edate = new DateTime('@' . mktime(0, 0, 0, 3, 21, $year));
+        $edate->modify('+' . easter_days($year) . ' days');
 
-        return $date;
+        return $edate;
     }
 
     /**
