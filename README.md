@@ -12,8 +12,8 @@ Optionally the class can also consider business days of specific countries like
 Brazil.
 
 [![Latest Stable Version](https://poser.pugx.org/springy-framework/business-days-calculator/v/stable)](https://packagist.org/packages/springy-framework/business-days-calculator)
+[![tests](https://github.com/springy-framework/business-days-calculator/actions/workflows/php.yml/badge.svg)](https://github.com/springy-framework/business-days-calculator/actions/workflows/php.yml)
 [![Build Status](https://travis-ci.com/springy-framework/business-days-calculator.svg?branch=main)](https://travis-ci.com/springy-framework/business-days-calculator)
-![PHP Composer](https://github.com/springy-framework/business-days-calculator/workflows/PHP%20Composer/badge.svg)
 [![PHPStan](https://img.shields.io/badge/PHPStan-enabled-brightgreen.svg?style=flat)](https://github.com/phpstan/phpstan)
 [![StyleCI](https://github.styleci.io/repos/318666163/shield?style=flat)](https://github.styleci.io/repos/318666163)
 [![Total Downloads](https://poser.pugx.org/springy-framework/business-days-calculator/downloads)](https://packagist.org/packages/springy-framework/business-days-calculator)
