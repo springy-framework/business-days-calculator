@@ -1,5 +1,15 @@
 <?php
 
+/**
+ * Test case for Springy\BusinessDaysCalculator class.
+ *
+ * phpcs:disable PSR1.Classes.ClassDeclaration.MissingNamespace
+ *
+ * @copyright 2025 Fernando Val
+ * @author    Fernando Val <fernando.val@gmail.com>
+ * @license   https://github.com/springy-framework/business-days-calculator?tab=MIT-1-ov-file#readme MIT
+ */
+
 use PHPUnit\Framework\TestCase;
 use Springy\BusinessDaysCalculator;
 
