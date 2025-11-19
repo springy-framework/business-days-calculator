@@ -7,7 +7,7 @@
  * @author    Fernando Val <fernando.val@gmail.com>
  * @license   https://github.com/springy-framework/business-days-calculator/blob/main/LICENSE MIT
  *
- * @version   1.0.1
+ * @version   1.0.2
  */
 
 namespace Springy;
@@ -43,7 +43,7 @@ class BusinessDaysCalculator
      * @param int      $daysOff   Array of days of the week which are not business days.
      */
     public function __construct(
-        DateTime $date = null,
+        ?DateTime $date = null,
         array $holidays = [],
         array $daysOff = [self::SATURDAY, self::SUNDAY]
     ) {
@@ -72,7 +72,7 @@ class BusinessDaysCalculator
             8  => [],
             9  => [7],
             10 => [12],
-            11 => [2, 15],
+            11 => [2, 15, 20],
             12 => [25],
         ];
 

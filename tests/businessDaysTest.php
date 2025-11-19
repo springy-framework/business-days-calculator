@@ -1,5 +1,15 @@
 <?php
 
+/**
+ * Test case for Springy\BusinessDaysCalculator class.
+ *
+ * phpcs:disable PSR1.Classes.ClassDeclaration.MissingNamespace
+ *
+ * @copyright 2025 Fernando Val
+ * @author    Fernando Val <fernando.val@gmail.com>
+ * @license   https://github.com/springy-framework/business-days-calculator?tab=MIT-1-ov-file#readme MIT
+ */
+
 use PHPUnit\Framework\TestCase;
 use Springy\BusinessDaysCalculator;
 
@@ -41,6 +51,7 @@ class BusinessDaysTest extends TestCase
             new DateTime('2021-10-12'),
             new DateTime('2021-11-02'),
             new DateTime('2021-11-15'),
+            new DateTime('2021-11-20'),
             new DateTime('2021-12-25'),
         ];
 

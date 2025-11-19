@@ -1,37 +1,94 @@
-name: tests
+name: Tests
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
+      - revision/*
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
+
+permissions:
+  contents: read
 
 jobs:
-  build:
+  tests:
+    name: php-${{ matrix.php-version }}
 
-    runs-on: ubuntu-latest
+    env:
+      extensions: calendar, gmp, json, libxml, mbstring, zip
+      key: cache-v1
+
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: true
+      matrix:
+        os:
+          - ubuntu-latest
+        php-version: ['8.1', '8.2', '8.3', '8.4']
 
     steps:
-    - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v4
 
-    - name: Validate composer.json and composer.lock
-      run: composer validate
+      - name: Setup cache environment
+        id: cache-env
+        uses: shivammathur/cache-extensions@v1
+        with:
+          php-version: ${{ matrix.php-version }}
+          extensions: ${{ env.extensions }}
+          key: ${{ env.key }}
 
-    - name: Cache Composer packages
-      id: composer-cache
-      uses: actions/cache@v2
-      with:
-        path: vendor
-        key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-php-
+      - name: Cache extensions
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.cache-env.outputs.dir }}
+          key: ${{ steps.cache-env.outputs.key }}
+          restore-keys: ${{ steps.cache-env.outputs.key }}
 
-    - name: Install dependencies
-      if: steps.composer-cache.outputs.cache-hit != 'true'
-      run: composer install --prefer-dist --no-progress --no-suggest
+      - name: Install PHP with extensions
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          extensions: ${{ env.extensions }}
+          ini-values: date.timezone='UTC'
+          coverage: none
 
-    # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
-    # Docs: https://getcomposer.org/doc/articles/scripts.md
+      - name: Determine composer cache directory
+        if: matrix.os == 'ubuntu-latest'
+        run: echo "COMPOSER_CACHE_DIR=$(composer config cache-dir)" >> $GITHUB_ENV
 
-    - name: Run test suite
-      run: composer run-script test
+      - name: Cache dependencies installed with composer
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.COMPOSER_CACHE_DIR }}
+          key: php-${{ matrix.php-version }}-mysql-${{ matrix.mysql-version }}-${{ hashFiles('**/composer.json') }}
+          restore-keys: |
+            php-${{ matrix.php-version }}-composer-${{ matrix.mysql-version }}-
+
+      - name: Validate composer.json and composer.lock
+        run: composer validate
+
+      # - name: Cache Composer packages
+      #   id: composer-cache
+      #   uses: actions/cache@v4
+      #   with:
+      #     path: vendor
+      #     key: ${{ runner.os }}-php-${{ hashFiles('**/composer.lock') }}
+      #     restore-keys: |
+      #       ${{ runner.os }}-php-
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-interaction --no-progress --no-suggest --optimize-autoloader
+
+      - name: Run test suite
+        env:
+          DB_HOST: "127.0.0.1"
+          DB_NAME: springy
+          DB_USER: root
+          DB_PASS: root
+          MYSQL: ${{ matrix.mysql-version }}
+        # run: vendor/bin/phpunit
+        run: composer run-script test
