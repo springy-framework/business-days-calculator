@@ -43,7 +43,7 @@ class BusinessDaysCalculator
      * @param int      $daysOff   Array of days of the week which are not business days.
      */
     public function __construct(
-        DateTime $date = null,
+        ?DateTime $date = null,
         array $holidays = [],
         array $daysOff = [self::SATURDAY, self::SUNDAY]
     ) {
