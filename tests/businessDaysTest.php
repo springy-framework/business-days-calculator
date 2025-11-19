@@ -41,6 +41,7 @@ class BusinessDaysTest extends TestCase
             new DateTime('2021-10-12'),
             new DateTime('2021-11-02'),
             new DateTime('2021-11-15'),
+            new DateTime('2021-11-20'),
             new DateTime('2021-12-25'),
         ];
 
